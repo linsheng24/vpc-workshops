@@ -29,7 +29,7 @@ resource "aws_instance" "instance" {
   }
 }
 
-resource null_resource "copy_key" {
+resource null_resource "copy_file" {
   triggers = {
     instance_id = timestamp()
   }
