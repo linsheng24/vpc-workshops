@@ -5,6 +5,7 @@ resource "aws_instance" "instance_b" {
   instance_type = "t2.micro"
   key_name = aws_key_pair.key.key_name
   vpc_security_group_ids      = [aws_security_group.allow_ssh_b.id, aws_security_group.allow_icmp_b.id]
+  source_dest_check = false // This is required for VPN client & NAT Gateway
 
   tags = {
     Environment = var.environment
